@@ -4,6 +4,16 @@ project("lfn-data-structure")
 set(CMAKE_CXX_STANDARD 17)
 
 
+SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra")
+# Coverage with clang++
+# SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
+# tests/Unit_Tests_run
+# llvm-profdata-8 merge -sparse default.profraw -o foo.profdata
+# llvm-cov-8 show ./foo -instr-profile=foo.profdata
+# llvm-cov-8 report ./tests/Unit_Tests_run -instr-profile=foo.profdata
+
+#SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -O0 -g -fprofile-arcs -ftest-coverage")
+
 #####################################################
 set(SOURCE_FILES src/main.cc)
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})

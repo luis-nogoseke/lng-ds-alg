@@ -12,8 +12,9 @@ endif()
 add_subdirectory(lib/googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
+include_directories(${CMAKE_SOURCE_DIR}/include)
 add_executable(Unit_Tests_run
-    basic_tests.cc
+    stack_test.cc
 )
 
 target_link_libraries(Unit_Tests_run gtest gtest_main)
