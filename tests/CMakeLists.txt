@@ -13,8 +13,8 @@ add_subdirectory(lib/googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-add_executable(Unit_Tests_run
+add_executable(unitTests
     stack_test.cc
 )
 
-target_link_libraries(Unit_Tests_run gtest gtest_main)
+target_link_libraries(unitTests gtest gtest_main)

@@ -32,7 +32,17 @@ TEST(Stack, CheckSize)
 
 TEST(Stack, Peek)
 {
-
+  lnfData::Stack<int> s;
+  for (int i = 0; i < 20; ++i){
+    s.push(i);
+  }
+  EXPECT_EQ(20U, s.size());
+  EXPECT_EQ(19, s.peek());
+  EXPECT_EQ(20U, s.size());
+  for (int i = 0; i < 20; ++i){
+    s.pop();
+  }
+  EXPECT_THROW(s.peek(), std::out_of_range);
 }
 
 TEST(Stack, PopEmpty)
@@ -44,14 +54,15 @@ TEST(Stack, PopEmpty)
 TEST(Stack, Allocate)
 {
   lnfData::Stack<int> s;
-  s.push(37);
-  EXPECT_EQ(37, s.peek());
-  s.push(37);
-  s.push(40);
-  s.push(42);
-  EXPECT_EQ(42, s.peek());
-  s.pop();
-  EXPECT_EQ(40, s.peek());
+  EXPECT_EQ(0U, s.size());
+  for (int i = 0; i < 1000; ++i){
+    s.push(i);
+  }
+  EXPECT_EQ(1000U, s.size());
+  for (int i = 0; i < 1000; ++i){
+    s.pop();
+  }
+  EXPECT_EQ(0U, s.size());
 }
 
 TEST(Stack, Stacking)
