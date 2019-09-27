@@ -15,6 +15,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/include)
 add_executable(unitTests
     stack_test.cc
+    binary_search_test.cc
 )
 
 target_link_libraries(unitTests gtest gtest_main)
